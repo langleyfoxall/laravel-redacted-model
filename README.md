@@ -7,7 +7,7 @@ Laravel Redacted Model makes it easier to hide or modify fields on a modal based
 Laravel Redacted Model can be installed using composer. Run the following command in your project.
 
 ```bash
-composer require langleyfoxall/laravel-redacted-modal
+composer require langleyfoxall/laravel-redacted-model
 ```
 
 If you have never used the Composer dependency manager before, head to the [Composer website](https://getcomposer.org/) for more information on how to get started.
@@ -59,6 +59,8 @@ class SensitiveModel extends RedactedModel
 
 If you want to completely omit the field instead of redacting it you can set the `redact` variable on your model to false.
 
+_Note: If `redactKeys` is set to true, when the model is serialised the keys of redacted fields will also be omitted._
+
 ```php
 class SensitiveModel extends RedactedModel
 {
@@ -100,3 +102,23 @@ class SensitiveModel extends RedactedModel
 
 $instanceOfRedactedModel->name // Returns K***y instead of Kathryn Janeway
 ``` 
+
+### Enabling and disabling protection
+
+If you want to temporarily disable field redaction or omission you can call `disableProtection()` on the model to disable protection and `enableProtection()` to re-enable it. This has to be used on a per-instance basis.
+
+```php
+class SensitiveModel extends RedactedModel
+{
+	protected $redacted = ['name'];
+}
+
+...
+
+$instanceOfRedactedModel->name // Returns [Hidden Data]
+
+$instanceOfRedactedModel->disableProtection();
+
+$instanceOfRedactedModel->name // Returns Reginald Barclay
+```
+ 
