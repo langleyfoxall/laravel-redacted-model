@@ -99,6 +99,7 @@ class SensitiveModel extends RedactedModel
 	{
 		return subStr($value, 0, 1).'***'.subStr($value, -1 ,1);
 	}
+	
 }
 
 ...
@@ -122,6 +123,11 @@ class SensitiveModel extends RedactedModel
 		return str_repeat("*", strlen($value)); 
 	}
 }
+
+...
+
+$instanceOfRedactedModel->name // Returns ********** instead of Section 31
+
 ``` 
 
 ### Enabling and disabling protection
