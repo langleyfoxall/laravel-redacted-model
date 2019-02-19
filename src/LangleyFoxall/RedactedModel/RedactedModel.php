@@ -2,7 +2,6 @@
 
 namespace LangleyFoxall\RedactedModel;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
