@@ -95,7 +95,9 @@ class RedactedModel extends Model
     private function getDataForKey($key)
     {
         $functionName = 'get'.Str::studly($key).'RedactedValue';
-        return method_exists($this, $functionName) ? $this->{$functionName}($this->getOriginal($key)) : $this->defaultRedactedValue($key);
+        return method_exists($this, $functionName)
+            ? $this->{$functionName}($this->getOriginal($key))
+            : $this->defaultRedactedValue($key, $this->getOriginal($key));
     }
 
     /**
@@ -103,7 +105,7 @@ class RedactedModel extends Model
      * @param $key
      * @return string|null
      */
-    public function defaultRedactedValue($key)
+    public function defaultRedactedValue($key, $value)
     {
         return $this->redact ? $this->redactedString : null;
     }
