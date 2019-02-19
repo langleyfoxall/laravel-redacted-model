@@ -94,7 +94,7 @@ class SensitiveModel extends RedactedModel
 	
 	public function getNameRedactedValue($value)
 	{
-		return subStr($value, 0).'***'.subStr($value, -1);
+		return subStr($value, 0, 1).'***'.subStr($value, -1 ,1);
 	}
 }
 
