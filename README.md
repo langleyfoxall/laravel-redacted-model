@@ -84,9 +84,11 @@ class SensitiveModel extends RedactedModel
 
 ### Redacted value accessors
 
-Redacted value accessors are defined the same way as [Laravel Accessors](https://laravel.com/docs/5.7/eloquent-mutators#accessors-and-mutators) but ending in `RedactedValue` instead of `Accessor`. 
+Accesors can be used to define the value of specific fields if they're redacted. Redacted value accessors are defined the same way as [Laravel Accessors](https://laravel.com/docs/5.7/eloquent-mutators#accessors-and-mutators) but ending in `RedactedValue` instead of `Accessor`. 
 
 The original value is passed into the method, this allows you to abstract the value instead of omitting or redacting it.
+
+For example if instead of returning the name from the model you want to only return the first and last letter:
 
 ```php
 class SensitiveModel extends RedactedModel
@@ -102,6 +104,24 @@ class SensitiveModel extends RedactedModel
 ...
 
 $instanceOfRedactedModel->name // Returns K***y instead of Kathryn Janeway
+``` 
+
+### Overriding the default redacted value
+
+By default redacted values will be returned as `[Hidden Value]` or `null` depending on the value of `$redacted`. You can bypass this by overriding `defaultRedactedValue` on the model.
+
+This is useful if you want to derive the redacted value from the original value, as the field name and original value are passed into it. For example if you want to replace all characters with stars:
+
+```php
+class SensitiveModel extends RedactedModel
+{
+	protected $redacted = ['name'];
+	
+	public function defaultRedactedValue($key, $value)
+	{
+		return str_repeat("*", strlen($value)); 
+	}
+}
 ``` 
 
 ### Enabling and disabling protection
