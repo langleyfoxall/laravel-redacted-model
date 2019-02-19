@@ -1,0 +1,21 @@
+{
+    "name": "langleyfoxall/laravel-redacted-model",
+    "description": "Laravel Redacted Model allows you to easily dynamically omitt and redact fields from Laravel Models",
+    "type": "library",
+    "require": {
+        "php": "^7.0.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "LangleyFoxall\\": "src/LangleyFoxall/"
+      }
+    },
+    "license": "LGPL-3.0-only",
+    "authors": [
+        {
+            "name": "Niles Butler",
+            "email": "niles@langleyfoxall.co.uk"
+        }
+    ],
+    "minimum-stability": "dev"
+}
