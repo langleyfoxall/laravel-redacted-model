@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace LangleyFoxall\RedactedModel;
 
 
 use Illuminate\Database\Eloquent\Model;
