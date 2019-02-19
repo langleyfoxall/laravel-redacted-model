@@ -95,4 +95,8 @@ class SensetiveModel extends RedactedModel
 		return subStr($value, 0).'***'.subStr($value, -1);
 	}
 }
+
+...
+
+$instanceOfRedactedModel->name // Returns K***y instead of Kathryn Janeway
 ``` 
