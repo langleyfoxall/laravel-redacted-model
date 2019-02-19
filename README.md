@@ -1,4 +1,5 @@
 # Laravel Redacted Model
+[![Packagist](https://img.shields.io/packagist/dt/langleyfoxall/laravel-redacted-model.svg)](https://packagist.org/packages/langleyfoxall/laravel-redacted-model/stats)
 
 Laravel Redacted Model makes it easier to hide or modify fields on a model based on given conditions in order to reduce data leakage in Laravel applications.
 
