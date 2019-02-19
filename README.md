@@ -17,7 +17,7 @@ If you have never used the Composer dependency manager before, head to the [Comp
 To redact fields simply extend `RedactedModel` in your model and set the `redacted` variable to an array of the fields you want to protect. By default when accesed these fields will return `[Hidden Data]`.
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 }
@@ -30,13 +30,13 @@ To conditionally redact fields override `shouldRedactField` on your model. The n
 _Note: Only fields specified in `$redacted` will be redacted regardless of what's returned from this method._
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 	
 	public function shouldRedactField($key)
 	{
-		return !\Auth::user()->canSeeSensetiveFields();
+		return !\Auth::user()->canSeeSensitiveFields();
 	}
 }
 ``` 
@@ -47,7 +47,7 @@ class SensetiveModel extends RedactedModel
 To change the message returned you can set the `redactedString` on your model. This will then be returned instead of `[Hidden Data]`.
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 	
@@ -60,7 +60,7 @@ class SensetiveModel extends RedactedModel
 If you want to completely omit the field instead of redacting it you can set the `redact` variable on your model to false.
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 	
@@ -68,10 +68,10 @@ class SensetiveModel extends RedactedModel
 }
 ``` 
 
-By default the array key of fields that return `null` and are in the redacted fields list will too be omitted in case the field name is sensetive. To disable this set `$redactKeys` to false on your model.
+By default the array key of fields that return `null` and are in the redacted fields list will too be omitted in case the field name is Sensitive. To disable this set `$redactKeys` to false on your model.
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 	
@@ -86,7 +86,7 @@ Redacted value accessors are defined the same way as [Laravel Accessors](https:/
 The original value is passed into the method, this allows you to abstract the value instead of omitting or redacting it.
 
 ```php
-class SensetiveModel extends RedactedModel
+class SensitiveModel extends RedactedModel
 {
 	protected $redacted = ['name'];
 	
