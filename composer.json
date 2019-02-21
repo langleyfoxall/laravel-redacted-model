@@ -2,6 +2,7 @@
     "name": "langleyfoxall/laravel-redacted-model",
     "description": "Laravel Redacted Model allows you to easily dynamically omit and redact fields from Laravel Models",
     "type": "library",
+    "keywords": ["laravel","hidden","hide","model","redact","redacted","censor","security"],
     "require": {
         "php": "^7.0.0",
         "illuminate/support": ">=5.0",
