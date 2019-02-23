@@ -133,4 +133,18 @@ class RedactedModel extends Model
 
         return $redactedData;
     }
+
+    /**
+     * Set or append to the redacted fields
+     * @param array|string $fields
+     */
+    public function setRedacted($fields)
+    {
+        if (is_array($fields)) {
+            $this->redacted = $fields;
+        } else {
+            array_push($this->redacted, $fields);
+        }
+
+    }
 }

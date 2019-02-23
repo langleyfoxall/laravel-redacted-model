@@ -149,3 +149,8 @@ $instanceOfRedactedModel->disableProtection();
 $instanceOfRedactedModel->name // Returns Reginald Barclay
 ```
  
+ # Changing the redacted fields
+ 
+ If you want to change or add to the redacted fields of a model after it has been instantiated you can call the `setRedacted` method on the model.
+ 
+ If you call it with an array as the parameter the `redacted` variable will be overridden but anything else will be appended to the existing array. 
